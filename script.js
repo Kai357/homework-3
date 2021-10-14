@@ -6,10 +6,22 @@ var generateBtn = document.querySelector("#generate");
 //
 function generatePassword() {
   var length = prompt("Put The length of your new password here");
-  console.log(length);
   var randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var randomCharsArray = randomChars.split("");
-  var result = "";
+  var lowercase = confirm("Do you want lowercase letters in your password");
+
+  if (lowercase === true) {
+    randomChars += "abcdefghijklmnopqrstuvwxyz";
+    var Numbers = confirm("do you want Numbers");
+  }
+  if (Numbers === true) {
+    randomChars += "1234567890";
+    var Special = confirm("do you want Special characters");
+  }
+  if (Special === true) {
+    randomChars += "!@#$%^&*()";
+    var randomCharsArray = randomChars.split("");
+    var result = "";
+  }
   for (var i = 0; i < length; i++) {
     result +=
       randomCharsArray[Math.floor(Math.random() * randomCharsArray.length)];
